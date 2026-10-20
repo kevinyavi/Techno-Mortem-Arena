@@ -67,6 +67,7 @@ La propuesta completa y detallada está en la Wiki del proyecto (ver más abajo)
 core/src/main/java/com/et35/technomortemarena/
 ├── TechnoMortemArena.java     Aplicación (Game): carga assets y abre la pantalla
 ├── RecursosGraficos.java      Carga y liberación centralizada de texturas
+├── RecursosAudio.java         Carga y liberación centralizada de los efectos de sonido
 ├── mundo/Arena.java           Escenario cerrado: medidas y límites laterales
 ├── entidades/
 │   ├── Jugador.java           Entidad controlable: física, salto y guardia
@@ -196,5 +197,10 @@ ejecución con `SpriteBatch.setColor()`, así un mismo archivo sirve para los do
 
 Para reemplazarlos por arte propio basta sobrescribir el `.png` respetando el nombre; si cambian las
 medidas, hay que ajustar `Jugador.ANCHO` y `Jugador.ALTO`.
+
+Los efectos de sonido de `assets/sounds/` son tres `.mp3`: las pisadas al correr, el golpe de la
+espada contra el cuerpo del rival y el aterrizaje de un salto. `RecursosAudio` los carga una sola vez
+como `Sound` (se reproducen desde memoria, sin cortes) y `PantallaArena` los dispara según lo que
+informa cada `Jugador`.
 
 El registro detallado de cambios está en [CHANGELOG.md](CHANGELOG.md).
